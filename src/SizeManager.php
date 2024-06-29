@@ -4,7 +4,7 @@ namespace Ispahbod\SizeManager;
 
 class SizeManager
 {
-    public function convertToMegabytes($input)
+    public function convertToMegabytes(string $input): float
     {
         $units = [
             'B' => 1 / (1024 * 1024),
@@ -25,49 +25,49 @@ class SizeManager
         return $value * $units[$unit];
     }
     
-    public function megabytesToKilobytes($megabytes, $withUnit = false)
+    public function megabytesToKilobytes(float $megabytes, bool $withUnit = false): string|float
     {
         $result = $megabytes * 1024;
         return $withUnit ? $result . ' KB' : $result;
     }
 
-    public function kilobytesToMegabytes($kilobytes, $withUnit = false)
+    public function kilobytesToMegabytes(float $kilobytes, bool $withUnit = false): string|float
     {
         $result = $kilobytes / 1024;
         return $withUnit ? $result . ' MB' : $result;
     }
 
-    public function megabytesToGigabytes($megabytes, $withUnit = false)
+    public function megabytesToGigabytes(float $megabytes, bool $withUnit = false): string|float
     {
         $result = $megabytes / 1024;
         return $withUnit ? $result . ' GB' : $result;
     }
 
-    public function gigabytesToMegabytes($gigabytes, $withUnit = false)
+    public function gigabytesToMegabytes(float $gigabytes, bool $withUnit = false): string|float
     {
         $result = $gigabytes * 1024;
         return $withUnit ? $result . ' MB' : $result;
     }
 
-    public function kilobytesToBytes($kilobytes, $withUnit = false)
+    public function kilobytesToBytes(float $kilobytes, bool $withUnit = false): string|float
     {
         $result = $kilobytes * 1024;
         return $withUnit ? $result . ' B' : $result;
     }
 
-    public function bytesToKilobytes($bytes, $withUnit = false)
+    public function bytesToKilobytes(float $bytes, bool $withUnit = false): string|float
     {
         $result = $bytes / 1024;
         return $withUnit ? $result . ' KB' : $result;
     }
 
-    public function gigabytesToTerabytes($gigabytes, $withUnit = false)
+    public function gigabytesToTerabytes(float $gigabytes, bool $withUnit = false): string|float
     {
         $result = $gigabytes / 1024;
         return $withUnit ? $result . ' TB' : $result;
     }
 
-    public function terabytesToGigabytes($terabytes, $withUnit = false)
+    public function terabytesToGigabytes(float $terabytes, bool $withUnit = false): string|float
     {
         $result = $terabytes * 1024;
         return $withUnit ? $result . ' GB' : $result;
