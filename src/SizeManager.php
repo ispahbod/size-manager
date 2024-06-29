@@ -4,7 +4,7 @@ namespace Ispahbod\SizeManager;
 
 class SizeManager
 {
-    public static function convertToMegabytes(string $input): float
+    public static function convertToMegabytes(string $input, int $precision = 0): float
     {
         $units = [
             'B' => 1 / (1024 * 1024),
@@ -22,31 +22,31 @@ class SizeManager
         if (!isset($units[$unit])) {
             throw new \InvalidArgumentException("Invalid unit");
         }
-        return $value * $units[$unit];
+        return round($value * $units[$unit], $precision);
     }
 
-    public static function convertToKilobytes(string $input): float
+    public static function convertToKilobytes(string $input, int $precision = 0): float
     {
-        $megabytes = self::convertToMegabytes($input);
-        return $megabytes * 1024;
+        $megabytes = self::convertToMegabytes($input, $precision);
+        return round($megabytes * 1024, $precision);
     }
 
-    public static function convertToGigabytes(string $input): float
+    public static function convertToGigabytes(string $input, int $precision = 0): float
     {
-        $megabytes = self::convertToMegabytes($input);
-        return $megabytes / 1024;
+        $megabytes = self::convertToMegabytes($input, $precision);
+        return round($megabytes / 1024, $precision);
     }
 
-    public static function convertToTerabytes(string $input): float
+    public static function convertToTerabytes(string $input, int $precision = 0): float
     {
-        $megabytes = self::convertToMegabytes($input);
-        return $megabytes / (1024 * 1024);
+        $megabytes = self::convertToMegabytes($input, $precision);
+        return round($megabytes / (1024 * 1024), $precision);
     }
 
-    public static function convertToBytes(string $input): float
+    public static function convertToBytes(string $input, int $precision = 0): float
     {
-        $megabytes = self::convertToMegabytes($input);
-        return $megabytes * (1024 * 1024);
+        $megabytes = self::convertToMegabytes($input, $precision);
+        return round($megabytes * (1024 * 1024), $precision);
     }
 
     public static function megabytesToKilobytes(float $megabytes, bool $withUnit = false): string|float
