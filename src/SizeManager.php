@@ -24,7 +24,31 @@ class SizeManager
         }
         return $value * $units[$unit];
     }
-    
+
+    public static function convertToKilobytes(string $input): float
+    {
+        $megabytes = self::convertToMegabytes($input);
+        return $megabytes * 1024;
+    }
+
+    public static function convertToGigabytes(string $input): float
+    {
+        $megabytes = self::convertToMegabytes($input);
+        return $megabytes / 1024;
+    }
+
+    public static function convertToTerabytes(string $input): float
+    {
+        $megabytes = self::convertToMegabytes($input);
+        return $megabytes / (1024 * 1024);
+    }
+
+    public static function convertToBytes(string $input): float
+    {
+        $megabytes = self::convertToMegabytes($input);
+        return $megabytes * (1024 * 1024);
+    }
+
     public static function megabytesToKilobytes(float $megabytes, bool $withUnit = false): string|float
     {
         $result = $megabytes * 1024;
